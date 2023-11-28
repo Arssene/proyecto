@@ -36,6 +36,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">A academia <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="formulario_insertar_usuarios.html">Alta usuarios/as</a></li>
+							<li><a href="administrar_grupos.php">Administrar grupos</a></li>
 							<li class="active"><a href="actividades.html">Actividades</a></li>
 						</ul>
 					</li>
@@ -69,14 +70,14 @@
 							<p class="text-center text-muted">Introduce as túas credenciales para acceder ó sitio. </p>
 							<hr>
 							
-							<form>
+							<form action="comprueba.php" method="post">
 								<div class="top-margin">
 									<label>Usuario <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+									<input type="text" name="nombre" class="form-control">
 								</div>
 								<div class="top-margin">
 									<label>Contrasinal <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
+									<input type="password" name="password" class="form-control">
 								</div>
 
 								<hr>

@@ -47,108 +47,234 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <title>Administrar Grupos</title>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	
+	<title>Administrar grupos</title>
+
+	<link rel="shortcut icon" href="logo.png">
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
+
+
 </head>
 <body>
-    <h2>Administrar Grupos</h2>
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="imagenes"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="index.html">Principal</a></li>
+					<li><a href="sobrenos.html">Sobre nós</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">A academia <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="formulario_insertar_usuarios.html">Alta usuarios/as</a></li>
+                            <li><a href="administrar_grupos.php">Administrar grupos</a></li>
+							<li class="active"><a href="actividades.html">Actividades</a></li>
+						</ul>
+					</li>
+					<li><a href="ondeestamos.html">Onde estamos</a></li>
+					<li><a class="btn" href="entra.html">ENTRA</a></li>
+				</ul>
+			</div>
+		</div>
+	</div> 
 
-    <!-- Formulario para crear un nuevo grupo -->
-    <form method="post" action="administrar_grupos.php">
-        <input type="hidden" name="accion" value="crear_grupo">
-        <label for="nombre_grupo">Nombre del nuevo grupo:</label>
-        <input type="text" name="nombre_grupo" required>
-        <input type="submit" value="Crear Grupo">
-    </form>
+    <header id="head" class="secondary"></header>
 
-    <br>
+    <div class="container">
 
-    <!-- Formulario para añadir o quitar usuarios en grupos existentes -->
-    <form method="post" action="administrar_grupos.php">
-        <input type="hidden" name="accion" value="agregar_usuario">
+    <ol class="breadcrumb">
+        <li><a href="index.html">Principal</a></li>
+        <li class="active">Administrar grupos</li>
+    </ol>
 
-        <!-- Seleccionar usuario -->
-        <label for="id_usuario">Seleccionar Usuario:</label>
-        <select name="id_usuario" required>
-            <!-- Obtener la lista de usuarios -->
-            <?php
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
-            $sqlUsuarios = "SELECT id_usuario, nombre FROM usuarios";
-            $resultadoUsuarios = $conexion->query($sqlUsuarios);
+    <div class="row">
+        
+        <article class="col-xs-12 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Administrar Grupos</h1>
+            </header>
+            
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        
+                        <p class="text-center text-muted">Crea un novo grupo. </p>
+                        <hr>
+                        
+                        
+                            <div class="top-margin">
+                                <!-- Formulario para crear un nuevo grupo -->
+                                <form method="post" action="administrar_grupos.php">
+                                    <input type="hidden" name="accion" value="crear_grupo">
+                                    <label for="nombre_grupo">Nome do grupo:</label>
+                                    <input type="text" name="nombre_grupo" required>
+                                    <input type="submit" class="btn btn-danger" value="Crear">
+                                </form>
+                            </div>
 
-            while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
-                echo "<option value='{$filaUsuario['id_usuario']}'>{$filaUsuario['nombre']}</option>";
-            }
+                            <hr>
+                            <p class="text-center text-muted">Agrega un usuario a un grupo. </p>
+                            <hr>
 
-            $conexion->close();
-            ?>
-        </select>
+                            <div class="top-margin">
+                                <!-- Formulario para añadir o quitar usuarios en grupos existentes -->
+                                <form method="post" action="administrar_grupos.php">
+                                    <input type="hidden" name="accion" value="agregar_usuario">
 
-        <!-- Seleccionar grupo -->
-        <label for="id_grupo">Seleccionar Grupo:</label>
-        <select name="id_grupo" required>
-            <!-- Obtener la lista de grupos -->
-            <?php
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
-            $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
-            $resultadoGrupos = $conexion->query($sqlGrupos);
+                                    <!-- Seleccionar usuario -->
+                                    <label for="id_usuario">Usuario:</label>
+                                    <select name="id_usuario" class="form-control" required>
+                                        <!-- Obtener la lista de usuarios -->
+                                        <?php
+                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $sqlUsuarios = "SELECT id_usuario, nombre FROM usuarios";
+                                        $resultadoUsuarios = $conexion->query($sqlUsuarios);
 
-            while ($filaGrupo = $resultadoGrupos->fetch_assoc()) {
-                echo "<option value='{$filaGrupo['id_grupo']}'>{$filaGrupo['nombre_grupo']}</option>";
-            }
+                                        while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
+                                            echo "<option value='{$filaUsuario['id_usuario']}'>{$filaUsuario['nombre']}</option>";
+                                        }
 
-            $conexion->close();
-            ?>
-        </select>
+                                        $conexion->close();
+                                        ?>
+                                    </select>
 
-        <input type="submit" value="Agregar Usuario a Grupo">
-    </form>
+                                    <!-- Seleccionar grupo -->
+                                    <label for="id_grupo">Grupo:</label>
+                                    <select name="id_grupo" class="form-control" required>
+                                        <!-- Obtener la lista de grupos -->
+                                        <?php
+                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
+                                        $resultadoGrupos = $conexion->query($sqlGrupos);
 
-    <br>
+                                        while ($filaGrupo = $resultadoGrupos->fetch_assoc()) {
+                                            echo "<option value='{$filaGrupo['id_grupo']}'>{$filaGrupo['nombre_grupo']}</option>";
+                                        }
 
-    <!-- Formulario para quitar usuario de un grupo -->
-    <form method="post" action="administrar_grupos.php">
-        <input type="hidden" name="accion" value="quitar_usuario">
+                                        $conexion->close();
+                                        ?>
+                                    </select>
+                                        <br>
+                                    <input type="submit" class="btn btn-danger" value="Agregar">
+                                </form>
+                            </div>
 
-        <!-- Seleccionar usuario -->
-        <label for="id_usuario">Seleccionar Usuario:</label>
-        <select name="id_usuario" required>
-            <!-- Obtener la lista de usuarios -->
-            <?php
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
-            $sqlUsuarios = "SELECT id_usuario, nombre FROM usuarios";
-            $resultadoUsuarios = $conexion->query($sqlUsuarios);
+                            <hr>
+                            <p class="text-center text-muted">Elimina un usuario dun grupo. </p>
+                            <hr>
+                            
+                            <div>
+                                <!-- Formulario para quitar usuario de un grupo -->
+                                <form method="post" action="administrar_grupos.php">
+                                    <input type="hidden" name="accion" value="quitar_usuario">
 
-            while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
-                echo "<option value='{$filaUsuario['id_usuario']}'>{$filaUsuario['nombre']}</option>";
-            }
+                                    <!-- Seleccionar usuario -->
+                                    <label for="id_usuario">Usuario:</label>
+                                    <select name="id_usuario" class="form-control" required>
+                                        <!-- Obtener la lista de usuarios -->
+                                        <?php
+                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $sqlUsuarios = "SELECT id_usuario, nombre FROM usuarios";
+                                        $resultadoUsuarios = $conexion->query($sqlUsuarios);
 
-            $conexion->close();
-            ?>
-        </select>
+                                        while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
+                                            echo "<option value='{$filaUsuario['id_usuario']}'>{$filaUsuario['nombre']}</option>";
+                                        }
 
-        <!-- Seleccionar grupo -->
-        <label for="id_grupo">Seleccionar Grupo:</label>
-        <select name="id_grupo" required>
-            <!-- Obtener la lista de grupos -->
-            <?php
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
-            $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
-            $resultadoGrupos = $conexion->query($sqlGrupos);
+                                        $conexion->close();
+                                        ?>
+                                    </select>
 
-            while ($filaGrupo = $resultadoGrupos->fetch_assoc()) {
-                echo "<option value='{$filaGrupo['id_grupo']}'>{$filaGrupo['nombre_grupo']}</option>";
-            }
+                                    <!-- Seleccionar grupo -->
+                                    <label for="id_grupo">Grupo:</label>
+                                    <select name="id_grupo" class="form-control" required>
+                                        <!-- Obtener la lista de grupos -->
+                                        <?php
+                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
+                                        $resultadoGrupos = $conexion->query($sqlGrupos);
 
-            $conexion->close();
-            ?>
-        </select>
+                                        while ($filaGrupo = $resultadoGrupos->fetch_assoc()) {
+                                            echo "<option value='{$filaGrupo['id_grupo']}'>{$filaGrupo['nombre_grupo']}</option>";
+                                        }
 
-        <input type="submit" value="Quitar Usuario de Grupo">
-    </form>
+                                        $conexion->close();
+                                        ?>
+                                    </select>
+                                        <br>
+                                    <input type="submit" class="btn btn-danger" value="Quitar">
+                                </form>
+                            </div>    
+
+                            
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+        </article>
+
+    </div>
+    </div>
+
+
 
     <br>
     <p><a href="usuarios_registrados1.php">Volver</p>
     <a href="cerrar_sesion.php">Cerrar sesión</a>
+
+
+
+
+    <footer id="footer" class="top-space">
+		
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="index.html">Principal</a> | 
+								<a href="sobrenos.html">Sobre nós</a> |
+								<a href="actividades.html">Actividades</a> |
+								<a href="ondeestamos.html">Onde estamos</a> |
+								<b><a href="entra.html">Entra</a></b>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								 &copy; 2023 Carlos Quintas <a href="https://cifpacarballeira.gal/" rel="designer">CIFP A Carballeira</a> 
+							</p>
+						</div>
+					</div>
+
+				</div> 
+			</div>
+		</div>
+
+	</footer>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
 </body>
 </html>
