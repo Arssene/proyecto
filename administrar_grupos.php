@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'crear_grupo':
             // Crear un nuevo grupo
             $nombre_grupo = $_POST['nombre_grupo'];
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
+            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "INSERT INTO grupos (nombre_grupo) VALUES ('$nombre_grupo')";
             $conexion->query($sql);
             $conexion->close();
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Agregar un usuario a un grupo
             $id_usuario = $_POST['id_usuario'];
             $id_grupo = $_POST['id_grupo'];
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
+            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "INSERT INTO usuarios_grupos (id_usuario, id_grupo) VALUES ($id_usuario, $id_grupo)";
             $conexion->query($sql);
             $conexion->close();
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Quitar un usuario de un grupo
             $id_usuario = $_POST['id_usuario'];
             $id_grupo = $_POST['id_grupo'];
-            $conexion = new mysqli("localhost", "root", "", "proyecto");
+            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "DELETE FROM usuarios_grupos WHERE id_usuario = $id_usuario AND id_grupo = $id_grupo";
             $conexion->query($sql);
             $conexion->close();
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <select name="id_usuario" class="form-control" required>
                                         <!-- Obtener la lista de usuarios -->
                                         <?php
-                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
                                         $sqlUsuarios = "SELECT id_usuario, nombre FROM usuarios";
                                         $resultadoUsuarios = $conexion->query($sqlUsuarios);
 
@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <select name="id_grupo" class="form-control" required>
                                         <!-- Obtener la lista de grupos -->
                                         <?php
-                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
                                         $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
                                         $resultadoGrupos = $conexion->query($sqlGrupos);
 
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <select name="id_usuario" class="form-control" required>
                                         <!-- Obtener la lista de usuarios -->
                                         <?php
-                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
                                         $sqlUsuarios = "SELECT id_usuario, nombre FROM usuarios";
                                         $resultadoUsuarios = $conexion->query($sqlUsuarios);
 
@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <select name="id_grupo" class="form-control" required>
                                         <!-- Obtener la lista de grupos -->
                                         <?php
-                                        $conexion = new mysqli("localhost", "root", "", "proyecto");
+                                        $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
                                         $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
                                         $resultadoGrupos = $conexion->query($sqlGrupos);
 

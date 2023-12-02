@@ -8,7 +8,7 @@ if (!isset($_SESSION['id_usuario'])) {
 }
 
 // Obtener mensajes de la base de datos dirigidos al grupo del usuario
-$conexion = new mysqli("localhost", "root", "", "proyecto");
+$conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
 $id_usuario = $_SESSION['id_usuario'];
 
 // Verificar si el usuario es un profesor
