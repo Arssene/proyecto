@@ -2,7 +2,7 @@
 session_start();
 
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "proyecto");
+$conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
 
 // Verificar la conexión
 if ($conexion->connect_error) {
