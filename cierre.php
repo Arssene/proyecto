@@ -9,11 +9,11 @@
     
     <?php
 
-        #cogemos la sesion en curso y la cerramos, luego llevamos a login
+        #cogemos la sesion en curso y la cerramos, luego llevamos a index
         session_start();
         session_destroy();
 
-        header("location:login.php");
+        header("location:index.html");
 
     ?>
 

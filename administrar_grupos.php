@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
 	<title>Administrar grupos</title>
 
-	<link rel="shortcut icon" href="logo.png">
+	<link rel="shortcut icon" href="assets/images/logo.png">
 	
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+<div class="navbar navbar-inverse navbar-fixed-top headroom" >
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -74,17 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="index.html">Principal</a></li>
+					<li><a href="actividades.html">Actividades</a></li>
 					<li><a href="sobrenos.html">Sobre nós</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">A academia <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="formulario_insertar_usuarios.html">Alta usuarios/as</a></li>
-                            <li><a href="administrar_grupos.php">Administrar grupos</a></li>
-							<li class="active"><a href="actividades.html">Actividades</a></li>
-						</ul>
-					</li>
 					<li><a href="ondeestamos.html">Onde estamos</a></li>
-					<li><a class="btn" href="entra.html">ENTRA</a></li>
+					<li><a class="btn" href="entra.html">ENTRAR</a></li>
 				</ul>
 			</div>
 		</div>
@@ -106,11 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 class="page-title">Administrar Grupos</h1>
             </header>
             
-            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-body">
+                    <div class="panel-body" style="padding:45px;">
                         
-                        <p class="text-center text-muted">Crea un novo grupo. </p>
+                        <h3><p class="text-center text-muted">Crear novo grupo</p></h3>
                         <hr>
                         
                         
@@ -125,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
 
                             <hr>
-                            <p class="text-center text-muted">Agrega un usuario a un grupo. </p>
+                            <h3 style="margin-top:70px"><p class="text-center text-muted">Agregar usuario a grupo</p></h3>
                             <hr>
 
                             <div class="top-margin">
@@ -172,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
 
                             <hr>
-                            <p class="text-center text-muted">Elimina un usuario dun grupo. </p>
+                            <h3 style="margin-top:70px"><p class="text-center text-muted">Eliminar usuario de grupo</p></h3>
                             <hr>
                             
                             <div>
@@ -215,28 +208,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </select>
                                         <br>
                                     <input type="submit" class="btn btn-danger" value="Quitar">
-                                </form>
-                            </div>    
 
-                            
-                        
+                                    <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p><a class="btn btn-danger" href="usuarios_registrados1.php">Volver</a></p>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>       
                     </div>
                 </div>
-
+                                        
             </div>
             
         </article>
 
     </div>
     </div>
-
-
-
-    <br>
-    <p><a href="usuarios_registrados1.php">Volver</p>
-    <a href="cerrar_sesion.php">Cerrar sesión</a>
-
-
 
 
     <footer id="footer" class="top-space">

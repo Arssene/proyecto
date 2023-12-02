@@ -7,7 +7,7 @@
 	
 	<title>Apúntate</title>
 
-	<link rel="shortcut icon" href="logo.png">
+	<link rel="shortcut icon" href="assets/images/logo.png">
 	
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -29,17 +29,10 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="index.html">Principal</a></li>
+					<li><a href="actividades.html">Actividades</a></li>
 					<li><a href="sobrenos.html">Sobre nós</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">A academia <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="formulario_insertar_usuarios.html">Alta usuarios/as</a></li>
-							<li><a href="administrar_grupos.php">Administrar grupos</a></li>
-							<li class="active"><a href="actividades.html">Actividades</a></li>
-						</ul>
-					</li>
 					<li><a href="ondeestamos.html">Onde estamos</a></li>
-					<li><a class="btn" href="entra.html">ENTRA</a></li>
+					<li><a class="btn" href="entra.html">ENTRAR</a></li>
 				</ul>
 			</div>
 		</div>
@@ -60,44 +53,54 @@
 				<header class="page-header">
 					<h1 class="page-title">Alta usuario/a</h1>
 				</header>
-				
 				<br>
-				<form action="pagina_insertar_usuarios.php" method="post">
-					<div class="row">
-						<div class="col-sm-4">
-							<h3>Usuario</h3>
-							<input type="text" name="usuario" id="usuario">
-						</div>
-						<div class="col-sm-4">
-							<h3>Apelido</h3>
-							<input type="text" name="apellido" id="apellido">
-						</div>
-						<div class="col-sm-4">
-							<h3>Email</h3>
-							<input type="email" name="email" id="email">
-						</div>	
-						<div class="col-sm-4">
-							<h3>Telefono</h3>
-							<input type="text" name="telefono" id="telefono">
-						</div>
-						<div class="col-sm-4">
-							<h3>Password</h3>
-							<input type="password" name="password" id="password">
-						</div>
-						<div class="col-sm-4">
-							<h3>Docente</h3>
-							<input type="checkbox" name="profesor" id="Profesor">
-						</div>
-						<div>
-							<br>
-						</div>
-						<p>*Marcar si é docente</p>
-						<div class="row">
-							<div class="col-sm-6">
-								<input class="btn btn-action" type="submit" name="enviado" value="Agregar usuario/a">
-							</div>
-						</div>				
-				</form>			
+				<div class="panel panel-default">
+                    <div class="panel-body" style="padding:45px;">
+						<form action="pagina_insertar_usuarios.php" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<h3>Usuario</h3>
+									<input type="text" name="usuario" id="usuario">
+								</div>
+								<div class="col-md-6">
+									<h3>Apelido</h3>
+									<input type="text" name="apellido" id="apellido">
+								</div>
+								<div class="col-md-6">
+									<h3>Email</h3>
+									<input type="email" name="email" id="email">
+								</div>	
+								<div class="col-md-6">
+									<h3>Telefono</h3>
+									<input type="text" name="telefono" id="telefono">
+								</div>
+								<div class="col-md-6">
+									<h3>Password</h3>
+									<input type="password" name="password" id="password">
+								</div>
+								<div class="col-md-6">
+									<h3>Docente</h3>
+									<input type="checkbox" name="profesor" id="Profesor">
+								</div>
+								<div>
+									<br>
+								</div>
+								<p>*Marcar si é docente</p>
+								<div class="row">
+									<div class="col-sm-6">
+										<input class="btn btn-danger" type="submit" name="enviado" value="Agregar usuario/a">
+									</div>
+								</div>	
+							</div>				
+						</form>	
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<p><a class="btn btn-danger" href="usuarios_registrados1.php">Volver</a></p>
+					</div>
+				</div>	
+
 			</article>
 
 		</div>
