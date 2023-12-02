@@ -47,7 +47,7 @@
             $base = null;
         }
 
-        header("location: formulario_insertar_usuarios.html");
+        header("location: formulario_insertar_usuarios.php");
     ?>
     <p><a href="usuarios_registrados1.php">Volver</p>
     <p><a href="enviar_mensaje.php">Enviar mensaje</a></p>

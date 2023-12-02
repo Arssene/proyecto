@@ -31,7 +31,7 @@ if ($resultado->num_rows > 0) {
         $_SESSION["nombre"] = $nombre;
         $_SESSION["profesor"] = $es_profesor; // Convertir a booleano para asegurar que sea true o false
 
-        header("location:usuarios_registrados1.php");
+        header("location:paxinausuarios.php");
         exit(); // Asegura que el script se detenga después de la redirección
     } else {
         echo "Contraseña incorrecta";

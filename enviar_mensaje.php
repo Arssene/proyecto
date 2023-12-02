@@ -117,7 +117,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p><a class="btn btn-danger" href="usuarios_registrados1.php">Volver</a></p>
+                                        <p><a class="btn btn-danger" href="paxinausuarios.php">Volver</a></p>
                                     </div>
                                 </div>
                             </form>

@@ -3,7 +3,7 @@ session_start();
 
 // Verificar si el usuario está autenticado y es profesor
 if (!isset($_SESSION['id_usuario']) || !$_SESSION['profesor']) {
-    header("location: login.php"); // Redirigir a la página de inicio de sesión si no está autenticado o no es profesor
+    header("location: index.html"); // Redirigir a la página de inicio de sesión si no está autenticado o no es profesor
     exit();
 }
 
@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <hr>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p><a class="btn btn-danger" href="usuarios_registrados1.php">Volver</a></p>
+                                        <p><a class="btn btn-danger" href="paxinausuarios.php">Volver</a></p>
                                     </div>
                                 </div>
                                 </form>
