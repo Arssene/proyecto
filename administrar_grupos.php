@@ -10,37 +10,28 @@ if (!isset($_SESSION['id_usuario']) || !$_SESSION['profesor']) {
 // Procesar las acciones de administración de grupos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $accion = $_POST['accion'];
-
+    $nombre_grupo = $_POST['nombre_grupo'];
+    $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
+    
     switch ($accion) {
         case 'crear_grupo':
             // Crear un nuevo grupo
-            $nombre_grupo = $_POST['nombre_grupo'];
-            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "INSERT INTO grupos (nombre_grupo) VALUES ('$nombre_grupo')";
-            $conexion->query($sql);
-            $conexion->close();
             break;
 
         case 'agregar_usuario':
             // Agregar un usuario a un grupo
-            $id_usuario = $_POST['id_usuario'];
-            $id_grupo = $_POST['id_grupo'];
-            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "INSERT INTO usuarios_grupos (id_usuario, id_grupo) VALUES ($id_usuario, $id_grupo)";
-            $conexion->query($sql);
-            $conexion->close();
             break;
 
         case 'quitar_usuario':
             // Quitar un usuario de un grupo
-            $id_usuario = $_POST['id_usuario'];
-            $id_grupo = $_POST['id_grupo'];
-            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "DELETE FROM usuarios_grupos WHERE id_usuario = $id_usuario AND id_grupo = $id_grupo";
-            $conexion->query($sql);
-            $conexion->close();
             break;
     }
+
+    $conexion->query($sql);
+    $conexion->close();
 }
 ?>
 
@@ -112,8 +103,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <form method="post" action="administrar_grupos.php">
                                     <input type="hidden" name="accion" value="crear_grupo">
                                     <label for="nombre_grupo">Nome do grupo:</label>
+                                    <br>
                                     <input type="text" name="nombre_grupo" required>
-                                    <input type="submit" class="btn btn-danger" value="Crear">
+                                    <br>
+                                    <input type="submit" style ="margin-left:20px;" class="btn btn-danger" value="Crear">
                                 </form>
                             </div>
 
@@ -159,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         $conexion->close();
                                         ?>
                                     </select>
-                                        <br>
+                                    <br>
                                     <input type="submit" class="btn btn-danger" value="Agregar">
                                 </form>
                             </div>
