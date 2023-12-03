@@ -10,28 +10,37 @@ if (!isset($_SESSION['id_usuario']) || !$_SESSION['profesor']) {
 // Procesar las acciones de administración de grupos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $accion = $_POST['accion'];
-    $nombre_grupo = $_POST['nombre_grupo'];
-    $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
-    
+
     switch ($accion) {
         case 'crear_grupo':
             // Crear un nuevo grupo
+            $nombre_grupo = $_POST['nombre_grupo'];
+            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "INSERT INTO grupos (nombre_grupo) VALUES ('$nombre_grupo')";
+            $conexion->query($sql);
+            $conexion->close();
             break;
 
         case 'agregar_usuario':
             // Agregar un usuario a un grupo
+            $id_usuario = $_POST['id_usuario'];
+            $id_grupo = $_POST['id_grupo'];
+            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "INSERT INTO usuarios_grupos (id_usuario, id_grupo) VALUES ($id_usuario, $id_grupo)";
+            $conexion->query($sql);
+            $conexion->close();
             break;
 
         case 'quitar_usuario':
             // Quitar un usuario de un grupo
+            $id_usuario = $_POST['id_usuario'];
+            $id_grupo = $_POST['id_grupo'];
+            $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
             $sql = "DELETE FROM usuarios_grupos WHERE id_usuario = $id_usuario AND id_grupo = $id_grupo";
+            $conexion->query($sql);
+            $conexion->close();
             break;
     }
-
-    $conexion->query($sql);
-    $conexion->close();
 }
 ?>
 
