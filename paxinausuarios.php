@@ -70,7 +70,7 @@
        <?php if (isset($_SESSION['profesor']) && $_SESSION['profesor'] == 1): ?>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><a class="btn btn-danger" href="enviar_mensaje.php">Enviar mensaje</a></p>
+                            <p><a class="btn btn-danger" href="enviar_mensaje.php">Enviar mensaxe</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -89,7 +89,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <p><a class="btn btn-danger" href="mostrar_mensaxes.php">Ver mensajes</a></p>
+                        <p><a class="btn btn-danger" href="mostrar_mensaxes.php">Ver mensaxes</a></p>
                     </div>
                 </div>
                 <div class="row">
