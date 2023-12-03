@@ -1,17 +1,9 @@
 /* Cabecera */
-#head {
-	background: rgba(24, 16, 21, 0.5) url('../images/libreta.jpeg') no-repeat;
-	background-size: cover;
-	min-height: 520px;
-	text-align: center;
-	padding-top: 240px;
-	color: rgb(7, 1, 1);
-	font-family: "Open sans", Helvetica, Arial;
-	font-weight: 300;
-  }
+#head { background:#181015 url( ../images/libreta4.jpg) no-repeat; background-size: cover; min-height:520px; text-align: center; padding-top:240px; 
+	color:rgb(7, 1, 1); font-family:"Open sans", Helvetica, Arial; font-weight:300; }
 #head.secondary { height:100px; min-height: 100px; padding-top:0px; }
 	#head .lead { font-family:"Open sans", Helvetica, Arial; font-size:44px; margin-bottom:6px; color:rgb(20, 6, 6); line-height:1.15em; } 
-	#head .tagline { color:rgba(255,255,255,0.75); margin-bottom:25px; }
+	#head .tagline { color:rgba(26, 10, 10, 0.75); margin-bottom:25px; }
 		#head .tagline a { color:#e60e0e; } 
 	#head .btn { margin-bottom:10px;}
 	#head .btn-default { text-shadow: none; background:transparent; color:rgba(192, 166, 166, 0.5); -webkit-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.5); -moz-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.5); box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.5); background: transparent; }
