@@ -19,7 +19,7 @@
         $cifrado_pass = password_hash($password, PASSWORD_DEFAULT);
         try {
             $base = new PDO('mysql:host=localhost; dbname=u808422263_proyecto', 'u808422263_root', 'Alumno.123');
-        
+            //$base = new PDO('mysql:host=localhost; dbname=proyecto', 'root', '');
             $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
             $base->exec("SET CHARACTER SET utf8");

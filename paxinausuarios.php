@@ -45,58 +45,56 @@
 		</ol>
 
 		<div class="row">
-			
-			<article class="col-sm-9 maincontent">
+			<article class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 form-container">
 				<header class="page-header">
 					<h1 class="page-title">
                     <?php
-
                         session_start();
-
                         if(!isset($_SESSION["nombre"])){
                             #comprobamos si esta seteado un usuario y si no lo enviamos al login
                             header("location:index.html");
                         }
                 
-                        echo "Hola " . $_SESSION["nombre"] . "<br></br>";
+                        echo "Ola, " . $_SESSION["nombre"] . "<br></br>";
                     ?>
 
                     </h1>
 				</header>
 		
 				<br>
-					
-       <!-- Verificar si el usuario es profesor antes de mostrar los enlaces -->
-       <?php if (isset($_SESSION['profesor']) && $_SESSION['profesor'] == 1): ?>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p><a class="btn btn-danger" style="width:200px" href="enviar_mensaje.php">Enviar mensaxe</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p><a class="btn btn-danger" style="width:200px" href="formulario_insertar_usuarios.php">Engadir usuarios</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p><a class="btn btn-danger" style="width:200px" href="administrar_grupos.php">Administrar grupos</a></p>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-
-
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p><a class="btn btn-danger" style="width:200px" href="mostrar_mensaxes.php">Ver mensaxes</a></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p><a class="btn btn-danger" style="width:200px" href="cierre.php">Pechar sesion</a></p>
-                    </div>
-                </div>
+				
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<!-- Verificar si el usuario es profesor antes de mostrar los enlaces -->
+						<?php if (isset($_SESSION['profesor']) && $_SESSION['profesor'] == 1): ?>
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									<p><a class="btn btn-danger" style="width:200px" href="enviar_mensaje.php">Enviar mensaxe</a></p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									<p><a class="btn btn-danger" style="width:200px" href="formulario_insertar_usuarios.php">Engadir usuarios</a></p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									<p><a class="btn btn-danger" style="width:200px" href="administrar_grupos.php">Administrar grupos</a></p>
+								</div>
+							</div>
+						<?php endif; ?>
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<p><a class="btn btn-danger" style="width:200px" href="mostrar_mensaxes.php">Ver mensaxes</a></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<p><a class="btn btn-danger" style="width:200px" href="cierre.php">Pechar sesion</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
             </article>
         </div>
     </div>

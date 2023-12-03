@@ -58,60 +58,53 @@ if (!isset($_SESSION['nombre'])) {
 
 		<div class="row">
 			
-			<article class="col-sm-9 maincontent">
+		<article class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 form-container">
 				<header class="page-header">
 					<h1 class="page-title">Alta usuario/a</h1>
 				</header>
-				<br>
+
 				<div class="panel panel-default">
-                    <div class="panel-body" style="padding:45px;">
+					<div class="panel-body" style="padding:45px;">
 						<form action="pagina_insertar_usuarios.php" method="post">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<h3>Usuario</h3>
-									<input type="text" name="usuario" id="usuario">
+									<input type="text" name="usuario" id="usuario" class="form-control">
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<h3>Apelido</h3>
-									<input type="text" name="apellido" id="apellido">
+									<input type="text" name="apellido" id="apellido" class="form-control">
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<h3>Email</h3>
-									<input type="email" name="email" id="email">
-								</div>	
-								<div class="col-md-6">
+									<input type="email" name="email" id="email" class="form-control">
+								</div>
+								<div class="col-md-12">
 									<h3>Telefono</h3>
-									<input type="text" name="telefono" id="telefono">
+									<input type="text" name="telefono" id="telefono" class="form-control">
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<h3>Password</h3>
-									<input type="password" name="password" id="password">
+									<input type="password" name="password" id="password" class="form-control">
+								</div>
+								<div class="col-md-12 checkbox-container">
+									<h3>Docente</h3>	
+									<div style="display: inline-block;">
+										<input type="checkbox" name="profesor" id="profesor">
+									</div>
+									<p style="display: inline-block;">*Marcar si é docente</p>
+								</div>
+								<div class="col-xs-12">
+									<input class="btn btn-danger" type="submit" name="enviado" style="width:200px;" value="Agregar usuario/a">
 								</div>
 								<div class="col-md-6">
-									<h3>Docente</h3>
-									<input type="checkbox" name="profesor" id="Profesor">
+									<p><a class="btn btn-danger" href="paxinausuarios.php"  style="margin-top:20px; width:200px;">Volver</a></p>
 								</div>
-								<div>
-									<br>
-								</div>
-								<p>*Marcar si é docente</p>
-								<div class="row">
-									<div class="col-sm-6">
-										<input class="btn btn-danger" type="submit" name="enviado" value="Agregar usuario/a">
-									</div>
-								</div>	
-							</div>				
-						</form>	
+							</div>
+						</form>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<p><a class="btn btn-danger" href="paxinausuarios.php">Volver</a></p>
-					</div>
-				</div>	
-
 			</article>
-
 		</div>
 	</div>	
 	

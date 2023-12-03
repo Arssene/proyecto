@@ -15,6 +15,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
         $grupos_destino = isset($_POST['grupos_destino']) ? $_POST['grupos_destino'] : [];
     
         // Obtener la lista de grupos a los que pertenece el usuario
+        //$conexion = new mysqli("localhost", "root", "", "proyecto");
         $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
     
         // Insertar el mensaje en la base de datos
@@ -72,9 +73,9 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
 		</div>
 	</div> 
 
-        <header id="head" class="secondary"></header>
+    <header id="head" class="secondary"></header>
 
-        <div class="container">
+    <div class="container">
 
 		<ol class="breadcrumb">
 			<li><a href="index.html">Principal</a></li>
@@ -101,6 +102,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
                                 <br>
                                 <!-- Seleccionar los grupos a los que se enviará el mensaje con checkboxes -->
                                 <?php
+                                //$conexion = new mysqli("localhost", "root", "", "proyecto");
                                 $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
                                 $sqlGrupos = "SELECT id_grupo, nombre_grupo FROM grupos";
                                 $resultadoGrupos = $conexion->query($sqlGrupos);

@@ -8,7 +8,9 @@ if (!isset($_SESSION['id_usuario'])) {
 }
 
 // Obtener mensajes de la base de datos dirigidos al grupo del usuario
+//$conexion = new mysqli("localhost", "root", "", "proyecto");
 $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
+
 $id_usuario = $_SESSION['id_usuario'];
 
 // Verificar si el usuario es un profesor
@@ -31,6 +33,11 @@ if ($es_profesor) {
             INNER JOIN grupos ON grupos.id_grupo = mensajes_grupos.id_grupo 
             ORDER BY mensajes.fecha DESC
             LIMIT $mensajes_por_pagina OFFSET $offset;";
+    // Realizar la consulta de conteo antes de cerrar la conexión
+    $sql_paginacion = "SELECT COUNT(DISTINCT mensajes.mensaje) as total FROM mensajes 
+    INNER JOIN mensajes_grupos ON mensajes.id_mensaje = mensajes_grupos.id_mensaje 
+    INNER JOIN grupos ON grupos.id_grupo = mensajes_grupos.id_grupo";
+    
 } else {
     $sql = "SELECT DISTINCT mensajes.mensaje, mensajes.fecha, grupos.nombre_grupo 
             FROM mensajes 
@@ -39,15 +46,19 @@ if ($es_profesor) {
             INNER JOIN grupos ON grupos.id_grupo = usuarios_grupos.id_grupo 
             ORDER BY mensajes.fecha DESC
             LIMIT $mensajes_por_pagina OFFSET $offset;";
+    // Realizar la consulta de conteo antes de cerrar la conexión
+    $sql_paginacion = "SELECT COUNT(DISTINCT mensajes.mensaje) as total FROM mensajes 
+    INNER JOIN mensajes_grupos ON mensajes.id_mensaje = mensajes_grupos.id_mensaje 
+    INNER JOIN usuarios_grupos ON mensajes_grupos.id_grupo = usuarios_grupos.id_grupo and usuarios_grupos.id_usuario = $id_usuario 
+    INNER JOIN grupos ON grupos.id_grupo = usuarios_grupos.id_grupo ";
 }
+$resultado_paginacion = $conexion->query($sql_paginacion);
+$fila_total = $resultado_paginacion->fetch_assoc();
+$total_paginas = ceil($fila_total['total'] / $mensajes_por_pagina);
 
 $resultado = $conexion->query($sql);
 
-// Realizar la consulta de conteo antes de cerrar la conexión
-$sql_total = "SELECT COUNT(DISTINCT mensajes.id_mensaje) as total FROM mensajes";
-$resultado_total = $conexion->query($sql_total);
-$fila_total = $resultado_total->fetch_assoc();
-$total_paginas = ceil($fila_total['total'] / $mensajes_por_pagina);
+
 
 $conexion->close();
 ?>
@@ -109,7 +120,7 @@ $conexion->close();
                     <?php
                     while ($fila = $resultado->fetch_assoc()) {
                         echo "<div class='panel panel-default'>
-                                  <div class='panel-heading'><strong>{$fila['nombre_grupo']}</strong> o {$fila['fecha']}</div>
+                                  <div class='panel-heading'><strong>{$fila['nombre_grupo']}</strong> - {$fila['fecha']}</div>
                                   <div class='panel-body'>{$fila['mensaje']}</div>
                               </div>";
                     }
