@@ -70,17 +70,17 @@
        <?php if (isset($_SESSION['profesor']) && $_SESSION['profesor'] == 1): ?>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><a class="btn btn-danger" href="enviar_mensaje.php">Enviar mensaxe</a></p>
+                            <p><a class="btn btn-danger" style="width:200px" href="enviar_mensaje.php">Enviar mensaxe</a></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><a class="btn btn-danger" href="formulario_insertar_usuarios.php">Alta usuarios</a></p>
+                            <p><a class="btn btn-danger" style="width:200px" href="formulario_insertar_usuarios.php">Engadir usuarios</a></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <p><a class="btn btn-danger" href="administrar_grupos.php">Administrar grupos</a></p>
+                            <p><a class="btn btn-danger" style="width:200px" href="administrar_grupos.php">Administrar grupos</a></p>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -89,12 +89,12 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <p><a class="btn btn-danger" href="mostrar_mensaxes.php">Ver mensaxes</a></p>
+                        <p><a class="btn btn-danger" style="width:200px" href="mostrar_mensaxes.php">Ver mensaxes</a></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <p><a class="btn btn-danger" href="cierre.php">Pecha sesion</a></p>
+                        <p><a class="btn btn-danger" style="width:200px" href="cierre.php">Pechar sesion</a></p>
                     </div>
                 </div>
             </article>
