@@ -94,7 +94,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
 							<h3 class="thin text-center">Envía unha mensaxe</h3>
 							<p class="text-center text-muted">Selecciona os grupos aos que vai dirixida. </p>
 							<hr>
-                            <form class="col-lg-6" method="post" action="enviar_mensaje.php">
+                            <form class="col-6" method="post" action="enviar_mensaje.php">
                                 <label for="mensaje">Mensaxe:</label>
                                 <textarea class="form-control" name="mensaje" id="mensaje" required></textarea><br>
                                 <label for="grupos_destino">Seleccionar Grupos Destino:</label>
@@ -106,7 +106,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
                                 $resultadoGrupos = $conexion->query($sqlGrupos);
                             
                                 while ($filaGrupo = $resultadoGrupos->fetch_assoc()) {
-                                    echo "<label><input type='checkbox' class='form-check' name='grupos_destino[]' value='{$filaGrupo['id_grupo']}' >{$filaGrupo['nombre_grupo']}</label><br>";
+                                    echo "<label style='margin-right: 5px;'><input type='checkbox' class='form-check' name='grupos_destino[]' value='{$filaGrupo['id_grupo']}' >{$filaGrupo['nombre_grupo']}</label><br>";
                                 }
                             
                                 $conexion->close();
