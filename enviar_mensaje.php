@@ -106,7 +106,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
                                 $resultadoGrupos = $conexion->query($sqlGrupos);
                             
                                 while ($filaGrupo = $resultadoGrupos->fetch_assoc()) {
-                                    echo "<label>&nbsp;<input type='checkbox' class='form-check' name='grupos_destino[]' value='{$filaGrupo['id_grupo']}' >{$filaGrupo['nombre_grupo']}</label><br>";
+                                    echo "<label><input type='checkbox' class='form-check' name='grupos_destino[]' value='{$filaGrupo['id_grupo']}'> {$filaGrupo['nombre_grupo']}</label><br>";
                                 }
                             
                                 $conexion->close();
