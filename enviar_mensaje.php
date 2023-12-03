@@ -113,11 +113,11 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
                                 ?>
                             
                                 <br>
-                                <input type="submit" class="btn btn-danger" value="Enviar Mensaxe">
+                                <input type="submit" class="btn btn-danger" style="width:200px" value="Enviar Mensaxe">
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p><a class="btn btn-danger" href="paxinausuarios.php">Volver</a></p>
+                                        <p><a class="btn btn-danger" style="width:200px" href="paxinausuarios.php">Volver</a></p>
                                     </div>
                                 </div>
                             </form>
