@@ -63,7 +63,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li class="active"><a href="index.html">Principal</a></li>
+					<li><a href="index.html">Principal</a></li>
 					<li><a href="actividades.html">Actividades</a></li>
 					<li><a href="sobrenos.html">Sobre nós</a></li>
 					<li><a href="ondeestamos.html">Onde estamos</a></li>
