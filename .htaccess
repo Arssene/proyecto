@@ -1,0 +1,4 @@
+# Habilitar la redirección de errores
+ErrorDocument 404 /error404.html
+
+# Otras configuraciones
