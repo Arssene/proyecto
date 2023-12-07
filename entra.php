@@ -1,3 +1,12 @@
+<?php
+                        session_start();
+                        if(isset($_SESSION["nombre"])){
+                            #comprobamos si esta seteado un usuario si no lo enviamos al login
+                            header("location:paxinausuarios.php");
+                        }
+                
+                        
+                    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
