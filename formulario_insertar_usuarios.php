@@ -95,7 +95,7 @@ if (!isset($_SESSION['nombre'])) {
 									<p style="display: inline-block;">*Marcar si é docente</p>
 								</div>
 								<div>
-									<input class="btn btn-danger" type="submit" name="enviado" style="width:200px;" value="Agregar usuario/a">
+									<input class="btn btn-danger" type="submit" name="enviado" style="width:200px;" value="Engadir usuario/a">
 								</div>
 								<div>
 									<p><a class="btn btn-danger" href="paxinausuarios.php"  style="margin-top:20px; width:200px;">Volver</a></p>
@@ -133,7 +133,7 @@ if (!isset($_SESSION['nombre'])) {
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
-								 &copy; 2023 Carlos Quintas <a href="https://cifpacarballeira.gal/" rel="designer">CIFP A Carballeira</a> 
+								 &copy; 2023 Carlos Quintas CIFP A Carballeira
 							</p>
 						</div>
 					</div>

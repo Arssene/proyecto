@@ -15,7 +15,7 @@
         $password = $_POST["password"];
         $profesor = isset($_POST["profesor"]) ? 1 : 0;
 
-        #ciframos la password del usuario
+        #ciframos a password do usuario
         $cifrado_pass = password_hash($password, PASSWORD_DEFAULT);
         try {
             $base = new PDO('mysql:host=localhost; dbname=u808422263_proyecto', 'u808422263_root', 'Alumno.123');

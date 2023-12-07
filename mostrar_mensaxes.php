@@ -1,31 +1,31 @@
 <?php
 session_start();
 
-// Verificar si el usuario está autenticado
+// Verificar si o usuario está autenticado
 if (!isset($_SESSION['id_usuario'])) {
     header("location: entra.php"); // Redirigir a la página de inicio de sesión si no está autenticado
     exit();
 }
 
-// Obtener mensajes de la base de datos dirigidos al grupo del usuario
+// Obter mensaxes da base de datos dirixidos o grupo do usuario
 //$conexion = new mysqli("localhost", "root", "", "proyecto");
 $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
 
 $id_usuario = $_SESSION['id_usuario'];
 
-// Verificar si el usuario es un profesor
+// Verificar si o usuario e un profesor
 $es_profesor = isset($_SESSION['profesor']) && $_SESSION['profesor'] == 1;
 
-// Definir la cantidad de mensajes por página
+// Definir a cantidade de mensaxes por páxina
 $mensajes_por_pagina = 4;
 
-// Obtener la página actual
+// Obter a páxina actual
 $pagina_actual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
-// Calcular el offset
+// Calcular o offset
 $offset = ($pagina_actual - 1) * $mensajes_por_pagina;
 
-// Obtener mensajes dirigidos a los grupos del usuario o a todos los grupos si es profesor
+// Obter mensaxes dirixidos aos grupos do usuario ou a todos os grupos si e profesor
 if ($es_profesor) {
     $sql = "SELECT DISTINCT mensajes.mensaje, mensajes.fecha, grupos.nombre_grupo 
             FROM mensajes 
@@ -33,7 +33,7 @@ if ($es_profesor) {
             INNER JOIN grupos ON grupos.id_grupo = mensajes_grupos.id_grupo 
             ORDER BY mensajes.fecha DESC
             LIMIT $mensajes_por_pagina OFFSET $offset;";
-    // Realizar la consulta de conteo antes de cerrar la conexión
+    // Realizar a consulta de conteo antes de pechar a conexión
     $sql_paginacion = "SELECT COUNT(DISTINCT mensajes.mensaje) as total FROM mensajes 
     INNER JOIN mensajes_grupos ON mensajes.id_mensaje = mensajes_grupos.id_mensaje 
     INNER JOIN grupos ON grupos.id_grupo = mensajes_grupos.id_grupo";
@@ -46,7 +46,7 @@ if ($es_profesor) {
             INNER JOIN grupos ON grupos.id_grupo = usuarios_grupos.id_grupo 
             ORDER BY mensajes.fecha DESC
             LIMIT $mensajes_por_pagina OFFSET $offset;";
-    // Realizar la consulta de conteo antes de cerrar la conexión
+    // Realizar a consulta de conteo antes de pechar a conexión
     $sql_paginacion = "SELECT COUNT(DISTINCT mensajes.mensaje) as total FROM mensajes 
     INNER JOIN mensajes_grupos ON mensajes.id_mensaje = mensajes_grupos.id_mensaje 
     INNER JOIN usuarios_grupos ON mensajes_grupos.id_grupo = usuarios_grupos.id_grupo and usuarios_grupos.id_usuario = $id_usuario 
@@ -126,11 +126,11 @@ $conexion->close();
                     }
                     ?>
 
-                    <!-- Paginación -->
+                    <!-- Paxinación -->
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <?php
-                            // Mostrar enlaces de paginación
+                            // Mostrar enlaces de paxinación
                             for ($i = 1; $i <= $total_paginas; $i++) {
                                 echo "<li " . ($i == $pagina_actual ? "class='active'" : "") . "><a href='?pagina=$i'>$i</a></li>";
                             }
@@ -169,7 +169,7 @@ $conexion->close();
                     <div class="col-md-6 widget">
                         <div class="widget-body">
                             <p class="text-right">
-                                &copy; 2023 Carlos Quintas <a href="https://cifpacarballeira.gal/" rel="designer">CIFP A Carballeira</a>
+                                &copy; 2023 Carlos Quintas CIFP A Carballeira
                             </p>
                         </div>
                     </div>

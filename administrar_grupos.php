@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <hr>
                         
                         <div class="form-horizontal top-margin">
-                            <!-- Formulario para crear un nuevo grupo -->
+                            <!-- Formulario para crear un novo grupo -->
                             <form method="post" action="administrar_grupos.php">
                                 <input type="hidden" name="accion" value="crear_grupo">
                                 <div class="form-group">
@@ -120,14 +120,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <hr>
 
                         <div class="top-margin">
-                            <!-- Formulario para añadir o quitar usuarios en grupos existentes -->
+                            <!-- Formulario para añadir ou quitar usuarios en grupos existentes -->
                             <form method="post" action="administrar_grupos.php">
                                 <input type="hidden" name="accion" value="agregar_usuario">
 
                                 <!-- Seleccionar usuario -->
                                 <label for="id_usuario">Usuario:</label>
                                 <select name="id_usuario" class="form-control" required>
-                                    <!-- Obtener la lista de usuarios -->
+                                    <!-- Obter a lista de usuarios -->
                                     <?php
                                     //$conexion = new mysqli("localhost", "root", "", "proyecto");
                                     $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <!-- Seleccionar grupo -->
                                 <label for="id_grupo">Grupo:</label>
                                 <select name="id_grupo" class="form-control" required>
-                                    <!-- Obtener la lista de grupos -->
+                                    <!-- Obter a lista de grupos -->
                                     <?php
                                     //$conexion = new mysqli("localhost", "root", "", "proyecto");
                                     $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <!-- Seleccionar usuario -->
                                 <label for="id_usuario">Usuario:</label>
                                 <select name="id_usuario" class="form-control" required>
-                                    <!-- Obtener la lista de usuarios -->
+                                    <!-- Obter a lista de usuarios -->
                                     <?php
                                     //$conexion = new mysqli("localhost", "root", "", "proyecto");
                                     $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
@@ -254,7 +254,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
-								 &copy; 2023 Carlos Quintas <a href="https://cifpacarballeira.gal/" rel="designer">CIFP A Carballeira</a> 
+								 &copy; 2023 Carlos Quintas CIFP A Carballeira
 							</p>
 						</div>
 					</div>

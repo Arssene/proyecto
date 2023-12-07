@@ -1,4 +1,4 @@
-# Habilitar la redirección de errores
+# Habilitar a redirección de erros
 ErrorDocument 404 /proxecto/error404.html
 
 # Otras configuraciones

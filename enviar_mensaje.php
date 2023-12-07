@@ -158,7 +158,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
                         <div class="col-md-6 widget">
                             <div class="widget-body">
                                 <p class="text-right">
-                                    &copy; 2023 Carlos Quintas <a href="https://cifpacarballeira.gal/" rel="designer">CIFP A Carballeira</a> 
+                                    &copy; 2023 Carlos Quintas CIFP A Carballeira
                                 </p>
                             </div>
                         </div>
