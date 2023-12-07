@@ -68,35 +68,36 @@ if (!isset($_SESSION['nombre'])) {
 						<form action="pagina_insertar_usuarios.php" method="post">
 							<div class="row">
 								<div class="col-md-12">
-									<input type="text" name="usuario" id="usuario" class="form-control">Usuario:</input>
+									<label for="usuario">Usuario:</label>
+									<input type="text" name="usuario" id="usuario" class="form-control">
 								</div>
 								<div class="col-md-12">
-									<h3>Apelido</h3>
+								<label for="apellido">Apelido:</label>
 									<input type="text" name="apellido" id="apellido" class="form-control">
 								</div>
 								<div class="col-md-12">
-									<h3>Email</h3>
+								<label for="email">Email:</label>
 									<input type="email" name="email" id="email" class="form-control">
 								</div>
 								<div class="col-md-12">
-									<h3>Telefono</h3>
+								<label for="telefono">Teléfono:</label>
 									<input type="text" name="telefono" id="telefono" class="form-control">
 								</div>
 								<div class="col-md-12">
-									<h3>Password</h3>
+								<label for="password">Password:</label>
 									<input type="password" name="password" id="password" class="form-control">
 								</div>
 								<div class="col-md-12 checkbox-container">
-									<h3>Docente</h3>	
+								<label for="profesor">Docente:</label>	
 									<div style="display: inline-block;">
 										<input type="checkbox" name="profesor" id="profesor">
 									</div>
 									<p style="display: inline-block;">*Marcar si é docente</p>
 								</div>
-								<div class="col-xs-12">
+								<div>
 									<input class="btn btn-danger" type="submit" name="enviado" style="width:200px;" value="Agregar usuario/a">
 								</div>
-								<div class="col-md-6">
+								<div>
 									<p><a class="btn btn-danger" href="paxinausuarios.php"  style="margin-top:20px; width:200px;">Volver</a></p>
 								</div>
 							</div>
