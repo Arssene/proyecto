@@ -3,7 +3,7 @@ session_start();
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['id_usuario'])) {
-    header("location: entra.html"); // Redirigir a la página de inicio de sesión si no está autenticado
+    header("location: entra.php"); // Redirigir a la página de inicio de sesión si no está autenticado
     exit();
 }
 
@@ -95,7 +95,7 @@ $conexion->close();
 					<li><a href="actividades.html">Actividades</a></li>
 					<li><a href="sobrenos.html">Sobre nós</a></li>
 					<li><a href="ondeestamos.html">Onde estamos</a></li>
-					<li><a class="btn" href="entra.html">ENTRAR</a></li>
+					<li><a class="btn" href="entra.php">ENTRAR</a></li>
 				</ul>
 			</div>
 		</div>
@@ -161,7 +161,7 @@ $conexion->close();
                                 <a href="sobrenos.html">Sobre nós</a> |
                                 <a href="actividades.html">Actividades</a> |
                                 <a href="ondeestamos.html">Onde estamos</a> |
-                                <b><a href="entra.html">Entra</a></b>
+                                <b><a href="entra.php">Entra</a></b>
                             </p>
                         </div>
                     </div>

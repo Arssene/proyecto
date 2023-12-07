@@ -41,7 +41,7 @@ if (!isset($_SESSION['nombre'])) {
 					<li><a href="actividades.html">Actividades</a></li>
 					<li><a href="sobrenos.html">Sobre nós</a></li>
 					<li><a href="ondeestamos.html">Onde estamos</a></li>
-					<li><a class="btn" href="entra.html">ENTRAR</a></li>
+					<li><a class="btn" href="entra.php">ENTRAR</a></li>
 				</ul>
 			</div>
 		</div>
@@ -125,7 +125,7 @@ if (!isset($_SESSION['nombre'])) {
 								<a href="sobrenos.html">Sobre nós</a> |
 								<a href="actividades.html">Actividades</a> |
 								<a href="ondeestamos.html">Onde estamos</a> |
-								<b><a href="entra.html">Entra</a></b>
+								<b><a href="entra.php">Entra</a></b>
 							</p>
 						</div>
 					</div>

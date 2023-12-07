@@ -35,7 +35,7 @@ if ($resultado->num_rows > 0) {
         header("location:paxinausuarios.php");
         exit(); // Asegura que el script se detenga después de la redirección
     } else {
-        header("location:entra.html");
+        header("location:entra.php");
     }
 } else {
     echo "Usuario no encontrado";
