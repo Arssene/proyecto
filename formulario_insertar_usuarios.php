@@ -68,8 +68,7 @@ if (!isset($_SESSION['nombre'])) {
 						<form action="pagina_insertar_usuarios.php" method="post">
 							<div class="row">
 								<div class="col-md-12">
-									<h3>Usuario</h3>
-									<input type="text" name="usuario" id="usuario" class="form-control">
+									<input type="text" name="usuario" id="usuario" class="form-control">Usuario:</input>
 								</div>
 								<div class="col-md-12">
 									<h3>Apelido</h3>
