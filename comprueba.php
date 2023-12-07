@@ -35,11 +35,7 @@ if ($resultado->num_rows > 0) {
         header("location:paxinausuarios.php");
         exit(); // Asegura que el script se detenga después de la redirección
     } else {
-        echo "Contraseña incorrecta";
-        echo "<br>Contraseña ingresada: $password";
-        echo "<br>Contraseña almacenada: $hash";
-        echo "<br>Longitud de la contraseña ingresada: " . strlen($password);
-        echo "<br>Longitud de la contraseña almacenada: " . strlen($hash);
+        header("location:entra.html");
     }
 } else {
     echo "Usuario no encontrado";
