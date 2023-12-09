@@ -2,71 +2,72 @@
 session_start();
 
 // Verificar si el usuario está autenticado y es profesor
-
-
 if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION['profesor'] == 1) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Procesar el formulario de envío de mensajes
-    
+
         $mensaje = $_POST['mensaje'];
         $id_usuario = $_SESSION['id_usuario']; // Obtener el ID del usuario autenticado
-    
+
         // Verificar si 'grupos_destino' está definido antes de intentar acceder a él
         $grupos_destino = isset($_POST['grupos_destino']) ? $_POST['grupos_destino'] : [];
-    
+
         // Obtener la lista de grupos a los que pertenece el usuario
         //$conexion = new mysqli("localhost", "root", "", "proyecto");
         $conexion = new mysqli("localhost", "u808422263_root", "Alumno.123", "u808422263_proyecto");
-    
+
         // Insertar el mensaje en la base de datos
         $sqlInsertarMensaje = "INSERT INTO mensajes (id_usuario, mensaje) VALUES ($id_usuario, '$mensaje')";
         $conexion->query($sqlInsertarMensaje);
-    
+
         // Obtener el ID del último mensaje insertado
         $id_mensaje = $conexion->insert_id;
-    
+
         // Asociar el mensaje con los grupos seleccionados
         foreach ($grupos_destino as $id_grupo) {
             $sqlInsertarMensajeGrupo = "INSERT INTO mensajes_grupos (id_mensaje, id_grupo) VALUES ($id_mensaje, $id_grupo)";
             $conexion->query($sqlInsertarMensajeGrupo);
-        }
 
+            // Obtener el nombre del grupo
+            $sqlNombreGrupo = "SELECT nombre_grupo FROM grupos WHERE id_grupo = $id_grupo";
+            $resultadoNombreGrupo = $conexion->query($sqlNombreGrupo);
 
-        //Prueba que envia emails os usuarios
+            if ($resultadoNombreGrupo) {
+                $filaNombreGrupo = $resultadoNombreGrupo->fetch_assoc();
+                $nomegrupo = $filaNombreGrupo['nombre_grupo'];
 
-        
-        $sqlNombreGrupo = "SELECT nombre_grupo 
-                   FROM grupos 
-                   WHERE id_grupo = $id_grupo";
+                // Obtener los correos electrónicos de los usuarios en el grupo
+                $sqlUsuariosGrupo = "SELECT u.email FROM usuarios u
+                    INNER JOIN usuarios_grupos ug ON u.id_usuario = ug.id_usuario
+                    WHERE ug.id_grupo = $id_grupo";
+                $resultadoUsuarios = $conexion->query($sqlUsuariosGrupo);
 
-        $nomegrupo = $conexion->query($sqlNombreGrupo);
+                $emails = [];
+                while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
+                    $emails[] = $filaUsuario['email'];
+                }
 
-        $emails = [];
-        foreach ($grupos_destino as $id_grupo) {
-            $sqlUsuariosGrupo = "SELECT u.email FROM usuarios u
-            INNER JOIN usuarios_grupos ug ON u.id_usuario = ug.id_usuario
-            WHERE ug.id_grupo = $id_grupo";
-            $resultadoUsuarios = $conexion->query($sqlUsuariosGrupo);
+                // Enviar mensaje a cada usuario
+                foreach ($emails as $email) {
+                    $destinatario = $email;
+                    $asunto = "Nova mensaxe de " . $nomegrupo;
+                    $contenido = "Mensaxe: " . $mensaje;
 
-            while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
-                $emails[] = $filaUsuario['email'];
+                    $header = "From: Academia Épsilon";
+                    mail($destinatario, $asunto, $contenido, $header);
+                }
             }
         }
 
-        // Enviar mensaje a cada usuario
-        foreach ($emails as $email) {
-            $destinatario = $email;
-            $asunto = "Nova mensaxe de " . $nomegrupo;
-            $contenido = "Mensaxe: " . $mensaje;
-
-            $header = "From: Academia Épsilon";
-            mail($destinatario, $asunto, $contenido, $header);
-        }
-
-    
         $conexion->close();
     }
-    ?>
+    // Resto del código HTML...
+} else {
+    header("location: login.php");
+    exit();
+}
+?>
+
     
     <!DOCTYPE html>
     <html lang="es">
