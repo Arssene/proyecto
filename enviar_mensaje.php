@@ -61,11 +61,7 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
 
         $conexion->close();
     }
-    // Resto del código HTML...
-} else {
-    header("location: login.php");
-    exit();
-}
+
 ?>
 
     
