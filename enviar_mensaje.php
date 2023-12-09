@@ -30,6 +30,39 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['profesor']) && $_SESSION[
             $sqlInsertarMensajeGrupo = "INSERT INTO mensajes_grupos (id_mensaje, id_grupo) VALUES ($id_mensaje, $id_grupo)";
             $conexion->query($sqlInsertarMensajeGrupo);
         }
+
+
+        //Prueba que envia emails os usuarios
+
+        
+        $sqlNombreGrupo = "SELECT nombre_grupo 
+                   FROM grupos 
+                   WHERE id_grupo = $id_grupo";
+
+        $nomegrupo = $conexion->query($sqlNombreGrupo);
+
+        $emails = [];
+        foreach ($grupos_destino as $id_grupo) {
+            $sqlUsuariosGrupo = "SELECT u.email FROM usuarios u
+            INNER JOIN usuarios_grupos ug ON u.id_usuario = ug.id_usuario
+            WHERE ug.id_grupo = $id_grupo";
+            $resultadoUsuarios = $conexion->query($sqlUsuariosGrupo);
+
+            while ($filaUsuario = $resultadoUsuarios->fetch_assoc()) {
+                $emails[] = $filaUsuario['email'];
+            }
+        }
+
+        // Enviar mensaje a cada usuario
+        foreach ($emails as $email) {
+            $destinatario = $email;
+            $asunto = "Nova mensaxe de " . $nomegrupo;
+            $contenido = "Mensaxe: " . $mensaje;
+
+            $header = "From: Academia Épsilon";
+            mail($destinatario, $asunto, $contenido, $header);
+        }
+
     
         $conexion->close();
     }
